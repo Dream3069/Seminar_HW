@@ -1,15 +1,18 @@
 #pragma once
-#include <string>
+#ifndef PERSON_HPP
+#define PERSON_HPP
 
-class Person
-{
+#include <string>
+#include <iostream>
+
+class Person {
 protected:
     std::string name;
-
 public:
     explicit Person(const std::string& name);
     virtual ~Person();
 
     virtual void print() const;
-    std::string getName() const;
 };
+
+#endif

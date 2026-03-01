@@ -1,20 +1,24 @@
 #pragma once
+#ifndef STUDENT_HPP
+#define STUDENT_HPP
+
 #include "Person.hpp"
 #include "RecordBook.hpp"
 
-class Student : public Person
-{
+class Student : public Person {
 private:
     RecordBook recordBook;
-
 public:
-    Student(const std::string& name,
-        const std::string& recordNumber);
+    explicit Student(const std::string& name);
+    Student(const std::string& name, const std::string& recordNum);
+    const std::string& getName() const;
 
-    void addGrade(double grade);
-    double calculateAverage() const;
-
+    void addGrade(int grade);
+    double getAverage() const;
     void print() const override;
 
-    const RecordBook& getRecordBook() const;
+    bool save(std::ofstream& out) const;
+    bool load(std::ifstream& in);
 };
+
+#endif

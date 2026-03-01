@@ -1,16 +1,11 @@
 #include "Teacher.hpp"
 #include <iostream>
 
-Teacher::Teacher(const std::string& name,
-    const std::string& subject)
-    : Person(name), subject(subject)
-{
+Teacher::Teacher(const std::string& name, const std::string& subj)
+    : Person(name), subject(subj) {
 }
 
-void Teacher::print() const
-{
-    std::cout << "�������������: "
-        << name
-        << " | ����������: "
-        << subject << std::endl;
+void Teacher::print() const {
+    Person::print();
+    std::cout << ", subject: " << subject;
 }

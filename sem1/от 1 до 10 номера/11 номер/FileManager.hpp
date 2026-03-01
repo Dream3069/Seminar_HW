@@ -1,13 +1,14 @@
 #pragma once
+#ifndef FILEMANAGER_HPP
+#define FILEMANAGER_HPP
+
 #include <string>
 #include "Group.hpp"
 
-class FileManager
-{
+class FileManager {
 public:
-    static void save(const Group& group,
-        const std::string& filename);
-
-    static void load(Group& group,
-        const std::string& filename);
+    static bool saveGroup(const Group& group, const std::string& filename);
+    static bool loadGroup(Group& group, const std::string& filename);
 };
+
+#endif

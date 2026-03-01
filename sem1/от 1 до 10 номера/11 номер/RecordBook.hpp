@@ -1,19 +1,25 @@
 #pragma once
-#include <vector>
+#ifndef RECORDBOOK_HPP
+#define RECORDBOOK_HPP
+
 #include <string>
+#include <vector>
+#include <fstream>
 
-class RecordBook
-{
+class RecordBook {
 private:
-    std::string recordNumber;
-    std::vector<double> grades;
-
+    std::string number;
+    std::vector<int> grades;
 public:
-    explicit RecordBook(const std::string& recordNumber);
+    RecordBook();
+    explicit RecordBook(const std::string& num);
 
-    void addGrade(double grade);
-    double calculateAverage() const;
+    void addGrade(int grade);
+    double getAverage() const;
+    void print() const;
 
-    const std::vector<double>& getGrades() const;
-    std::string getRecordNumber() const;
+    bool save(std::ofstream& out) const;
+    bool load(std::ifstream& in);
 };
+
+#endif
